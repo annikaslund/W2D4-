@@ -17,3 +17,26 @@ def okay_two_sum?(arr, target)
   return false if small_nums.length <= 1
   small_nums[-1] + small_nums[-2] == target
 end
+
+# hash O(n)
+def two_sum?(arr, target)
+  count = Hash.new(0)
+
+  arr.each do |n|
+    count[n] += 0
+  end
+
+  current = nil
+
+  count.each do |k, _v|
+    if current.nil?
+      current = k
+      next
+    end
+
+    current += k
+    return true if current == target
+    current = k
+  end
+  false
+end
