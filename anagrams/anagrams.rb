@@ -24,6 +24,7 @@ def third_anagram?(word1, word2)
   word1.chars.sort == word2.chars.sort
 end
 
+# O(n) ?
 def fourth_anagram?(word1, word2)
   word1_hash = Hash.new(0)
   word2_hash = Hash.new(0)
