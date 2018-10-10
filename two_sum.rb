@@ -7,3 +7,13 @@ def bad_two_sum?(arr, target)
   end
   false
 end
+
+# sorting O(n log n)
+def okay_two_sum?(arr, target)
+  sorted_arr = arr.sort
+  mid = sorted_arr.length / 2
+
+  small_nums = sorted_arr.reject { |n| n > target }
+  return false if small_nums.length <= 1
+  small_nums[-1] + small_nums[-2] == target
+end
