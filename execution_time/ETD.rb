@@ -33,6 +33,7 @@ def my_min_2(arr)
   min
 end
 
+# O(n^2) ACTUALLY O(n^3) - polynomial
 def largest_contiguous_subarr_1(arr)
   subsets = all_subsets(arr)
   max_total = subsets.first.reduce(:+)
@@ -55,4 +56,19 @@ def all_subsets(arr)
     end
 
   sets
-end 
+end
+
+def largest_contiguous_subarr_2(arr)
+  largest = arr.first
+  current = arr.first
+
+  return arr.max if arr.all? { |num| num < 0 }
+
+  (1...arr.length).each do |i|
+    current = 0 if current < 0
+    current += arr[i]
+    largest = current if current > largest
+  end
+
+  largest
+end
