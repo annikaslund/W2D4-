@@ -19,7 +19,25 @@ def second_anagram?(word1, word2)
   word2.empty?
 end
 
-#
+# O(n log n) ?
 def third_anagram?(word1, word2)
   word1.chars.sort == word2.chars.sort
+end
+
+def fourth_anagram?(word1, word2)
+  word1_hash = Hash.new(0)
+  word2_hash = Hash.new(0)
+
+  word1.chars.each do |char|
+    word1_hash[char] += 1
+  end
+
+  word2.chars.each do |char|
+    word2_hash[char] += 1
+  end
+
+  word1_hash.each do |k, v|
+    return false unless word2_hash.include?(k) && word1_hash[k] == word2_hash[k]
+  end
+  true
 end
