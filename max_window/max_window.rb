@@ -10,3 +10,29 @@ def max_windowed_range(array, window_size)
 
   current_max_range
 end
+
+class MyQueue
+  def initialize
+    @store = []
+  end
+
+  def peek
+    @store.first
+  end
+
+  def size
+    @store.count
+  end
+
+  def empty?
+    @store.empty?
+  end
+
+  def enqueue(el)
+    @store.push(el)
+  end
+
+  def dequeue
+    @store.shift(el)
+  end
+end
