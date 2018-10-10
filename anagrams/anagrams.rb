@@ -6,7 +6,7 @@ def first_anagram?(word1, word2)
   return anagrams.include?(word2)
 end
 
-#O(n)
+# O(n)
 def second_anagram?(word1, word2)
   return false if word1.length != word2.length
   word2 = word2.chars
@@ -17,4 +17,9 @@ def second_anagram?(word1, word2)
   end
 
   word2.empty?
+end
+
+#
+def third_anagram?(word1, word2)
+  word1.chars.sort == word2.chars.sort
 end
